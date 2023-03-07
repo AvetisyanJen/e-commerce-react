@@ -50,7 +50,8 @@ input::placeholder {
   }
   .catgrories {
     background-color: #f6f9fc;
-    padding: 0px 30px;
+    padding: 0 20px 50px 20px; 
+    /* padding-bottom: 50px; */
     border-radius: 5px;
     height: 6vh;
     margin-top: 5px;

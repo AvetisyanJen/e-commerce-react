@@ -3,7 +3,7 @@ import Footer from "../Components/Footer/Footer"
 import Header from "../Components/Header/Header"
 import Home from "../Pages/Home/Home"
 import About from "../Pages/About/About"
-import { useState } from "react"
+import { useState,useCallback, useMemo} from "react"
 import Product from "../Pages/Product/Product"
 
 function Router(){
@@ -19,7 +19,8 @@ const [count,setCount]=useState(0)
 
 function sum(){
     return setCount(count+1)
-}
+ }
+
 return(<>
 
 <BrowserRouter>

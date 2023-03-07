@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { memo, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 
 
-function Navbar({ state, setState }) {
-  const [category] = useState()
+const Navbar=memo(({ state, setState })=> {
+ 
 
-
+console.log(state)
   return (<>
     <div className="header">
       <div className="container d_flex">
@@ -32,4 +32,5 @@ function Navbar({ state, setState }) {
     </div>
 
   </>)
-} export default Navbar
+})
+ export default Navbar

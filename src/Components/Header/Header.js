@@ -1,9 +1,11 @@
 
+import { memo } from "react"
 import "./Header.css"
 import Navbar from "./Navbar"
 
-function Header({count,state,setState}){
+const  Header=({count,state,setState})=>{
 console.log(count)
+
     return(<>
       <header>
          <section className="section">
@@ -33,4 +35,5 @@ console.log(count)
       </header>
       <Navbar state={state} setState={setState}/>
     </>)
-}export default Header
+}
+export default Header

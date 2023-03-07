@@ -1,10 +1,10 @@
-import { useEffect, useState} from "react"
+import { useEffect, useState,memo} from "react"
 import { Link} from "react-router-dom"
-import { getData } from "../../data"
+// import { getData } from "../../data"
 import "./Home.css"
 
 
-function Home({ sum,state}) {
+const Home = ({ sum,state}) => {
   const [category]=useState([
     {id:1,name:"Համրիչներ"},
     {id:2,name:"Ուտեստներ"},
@@ -15,10 +15,15 @@ function Home({ sum,state}) {
   const[data,setData]=useState("")
   const [product, setProduct] = useState([])
   useEffect(() => {
-    getData().then(response => setProduct(response))
+    fetch("http://localhost:4000/")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      setProduct(data)
+    })
   }, [])
-
-console.log(data)
+console.log(state)
   return (<>
     <div className="main">
      {state && <div className="catgrories-div">
@@ -43,7 +48,7 @@ console.log(data)
         </div>
       }):product.map((elm) => {
         return <div className="wrapper" key={elm.id}>
-          <Link to={`/${elm.id-1}`}><img className="imige" src={elm.img} />
+          <Link to={`/${elm.id}`}><img className="imige" src={elm.img} />
           </Link>
           <div className='title-div'>
           <h6 className="title">{elm.name}</h6>
@@ -62,7 +67,8 @@ console.log(data)
 
 
   </>)
-} export default Home
+}
+export default Home
 
 
 
